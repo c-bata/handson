@@ -34,6 +34,34 @@ $ source ./venv/activate
 (venv)$ pip install -c constraints.txt -r requirements.txt
 ```
 
+**Hello World**
+
+無事に動くかどうか確認しましょう。
+`app.py` を作成して、次のコードを書き込んでください。
+
+```python
+from kobin import Kobin, Response
+
+app = Kobin()
+
+@app.route('/')
+def index() -> Response:
+    return Response('Hello World')
+```
+
+それでは起動します。
+
+```console
+$ wsgicli run app.py app -p 8000
+Start: 127.0.0.1:8000
+```
+
+http://127.0.0.1:8000 にアクセスしてください。
+「Hello World」と表示されれば、準備完了です。
+
+ハンズオンに進んでみましょう。
+ここまでで躓いたことやわからないことがあれば、[@c_bata_](https://twitter.com/c_bata_) に気軽に相談してください。
+
 
 ## 開催実績
 
