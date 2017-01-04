@@ -9,6 +9,7 @@ Kobinのハンズオン資料です。
 - MacもしくはLinuxが動く環境
 - エディタ(こだわりがない場合はPyCharmがお薦めです)
 - Python 3.6
+- SQLite3
 
 
 **virtualenvの作成**
@@ -25,10 +26,12 @@ $ source ./venv/activate
 /<path to pwd>/venv/bin/pip
 ```
 
+
 **必要なライブラリのインストール**
 
 ```console
-(venv)$ pip install -r requirements.txt
+(venv)$ pip install -U pip
+(venv)$ pip install -c constraints.txt -r requirements.txt
 ```
 
 
