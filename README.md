@@ -12,7 +12,7 @@ Kobinのハンズオン資料です。
 - SQLite3
 
 
-**virtualenvの作成**
+#### virtualenvの作成
 
 ハンズオンをしていくにあたって、virtualenvの使用を推奨しています。
 Python3では、 `venv` モジュールが含まれていますのでこちらを使用して作成してください。
@@ -27,17 +27,17 @@ $ source ./venv/activate
 ```
 
 
-**必要なライブラリのインストール**
+#### 必要なライブラリのインストール
 
 ```console
 (venv)$ pip install -U pip
 (venv)$ pip install -c constraints.txt -r requirements.txt
 ```
 
-**Hello World**
+#### Hello World
 
-無事に動くかどうか確認しましょう。
-`app.py` を作成して、次のコードを書き込んでください。
+余裕のある方は，無事に動くかどうか確認してみましょう。
+Hello Worldは次のようになります。
 
 ```python
 from kobin import Kobin, Response
@@ -49,7 +49,7 @@ def index() -> Response:
     return Response('Hello World')
 ```
 
-それでは起動します。
+`app.py` という名前で保存した場合、次のコマンドでサーバを起動します。
 
 ```console
 $ wsgicli run app.py app -p 8000
@@ -65,5 +65,7 @@ http://127.0.0.1:8000 にアクセスしてください。
 
 ## 開催実績
 
-- [神戸Pythonの会 Webアプリ開発 #1](https://kobe-python.connpass.com/event/48080/)
+- 神戸Pythonの会 Webアプリ開発 #1
+    - [connpass](https://kobe-python.connpass.com/event/48080/)
+    - [doorkeeper](https://f0697a62045dae763ed7b3c489.doorkeeper.jp/events/55869)
 
