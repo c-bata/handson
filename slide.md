@@ -166,7 +166,7 @@ def index() -> TemplateResponse:
 `templates/index.html` を用意してKobinから読み込む。
 
 ```html
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Kobin Handson</title>
@@ -181,6 +181,110 @@ def index() -> TemplateResponse:
     </section>
 </body>
 </html>
+```
+http://127.0.0.1:8000/ に行ってみよう。
+]
+
+---
+.left-column[
+## Tutorial
+### Hello World
+### Routing
+### Template Engine
+]
+.right-column[
+変数の表示
+
+```python
+@app.route('/tasks/{task_id}')
+def task_detail(task_id: int) -> TemplateResponse:
+    return TemplateResponse('task-detail.html', task_id=task_id)
+```
+
+`templates/task-detail.html` を追加
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kobin Handson</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.min.css" />
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1 class="title">This is task{{ task_id }}</h1>
+            <p class="subtitle">変数をテンプレートで表示してみましょう。</p>
+        </div>
+    </section>
+</body>
+</html>
+```
+http://127.0.0.1:8000/tasks/1 に行ってみよう。
+]
+
+---
+.left-column[
+## Tutorial
+### Hello World
+### Routing
+### Template Engine
+]
+.right-column[
+テンプレートの継承
+
+`base.html` を用意
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.min.css" />
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </section>
+</body>
+</html>
+```
+]
+
+---
+.left-column[
+## Tutorial
+### Hello World
+### Routing
+### Template Engine
+]
+.right-column[
+テンプレートの継承
+
+`index.html`
+
+```html
+{% extends "base.html" %}
+{% block title %}Hello Kobin!{% endblock %}
+
+{% block content %}
+<h1 class="title">Hello Kobin</h1>
+<p class="subtitle">HTMLテンプレートを使った例です。</p>
+{% endblock %}
+```
+
+`task-detail.html`
+
+```html
+{% extends "base.html" %}
+{% block title %}Task Detail{% endblock %}
+
+{% block content %}
+<h1 class="title">This is task{{ task_id }}</h1>
+<p class="subtitle">変数をテンプレートで表示してみましょう。</p>
+{% endblock %}
 ```
 ]
 
