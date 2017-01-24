@@ -35,8 +35,8 @@ layout: false
 
 1. Kobin
 2. Hello World
-3. Template Engine
-4. Routing
+3. Routing
+4. Template Engine
 5. Database (SQLite3)
 
 ???
@@ -52,8 +52,9 @@ template: inverse
 ---
 ## Kobin
 
-- 作者: c-bata
-- Simple (考え方を簡潔に) vs Easy (作ることが簡単に)
+- https://github.com/kobinpy/kobin
+- Type Hints friendly WSGI Framework for Python3.
+- **Simple** (考え方を簡潔に) vs **Easy** (作ることが簡単に)
 - 実装は500行程度
 
 ???
@@ -105,6 +106,38 @@ $ wsgicli run app.py app
 
 http://127.0.0.1:8000/ に行ってみよう。
 ]
+---
+template: inverse
+
+# Routing
+
+---
+.left-column[
+## Tutorial
+### Hello World
+### Routing
+]
+.right-column[
+ルーティングとURL変数
+
+```python
+from kobin import Kobin, Response
+
+app = Kobin()
+
+
+@app.route('/')
+def index() -> Response:
+    return Response('Hello World')
+
+
+@app.route('/tasks/<task_id>')
+def task_detail(task_id: int) -> Response:
+    return Response(f'Task {task_id}')
+```
+
+http://127.0.0.1:8000/tasks/1
+]
 
 ---
 template: inverse
@@ -117,6 +150,7 @@ Templates
 .left-column[
 ## Tutorial
 ### Hello World
+### Routing
 ### Template Engine
 ]
 .right-column[
@@ -153,19 +187,14 @@ def index() -> TemplateResponse:
 ---
 template: inverse
 
-# Routing
-
----
-template: inverse
-
 # Database
 
 ---
 .left-column[
 ## Tutorial
 ### Goal
-### Template Engine
 ### Routing
+### Template Engine
 ### Database
 ]
 .right-column[
@@ -190,6 +219,35 @@ id          name
 2           Use sqlite3 from pytho
 sqlite> .quit
 ```
+
+See https://sqlite.org/cli.html
+]
+
+---
+.left-column[
+## Tutorial
+### Goal
+### Routing
+### Template Engine
+### Database
+]
+.right-column[
+PythonからSQLite3を操作する。
+
+```python
+>>> import sqlite3
+>>> conn = sqlite3.connect('db.sqlite3')
+>>> cur = conn.cursor()
+>>> for row in cur.execute("SELECT * from tasks"):
+...     print(row)
+...
+(1, 'Run kobin application.')
+(2, 'Use sqlite3 from python')
+>>> cur.close()
+>>> conn.close()
+```
+
+See http://docs.python.jp/3/library/sqlite3.html
 ]
 
 ---
