@@ -1,8 +1,6 @@
-from kobin import Kobin, load_config, TemplateResponse
+from kobin import Kobin, TemplateResponse
 
-app = Kobin(
-    config=load_config({'DEBUG': True})
-)
+app = Kobin()
 
 
 @app.route('/')
