@@ -25,7 +25,7 @@ layout: false
 - PyCon JP, Taiwan, Korea参加・登壇
     - http://gihyo.jp/news/report/01/pycon-apac-2015
     - http://gihyo.jp/news/report/01/pycon-apac2016
-- PyCon JP 2016では、Webフレームワークの作り方
+- PyCon JP 2016: [「基礎から学ぶWebフレームワークの作り方」](http://c-bata.link/webframework-in-python/slide.html#1)
 ]
 
 ---
