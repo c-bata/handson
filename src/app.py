@@ -1,8 +1,10 @@
-from kobin import Kobin, Response
+from kobin import Kobin, load_config, TemplateResponse
 
-app = Kobin()
+app = Kobin(
+    config=load_config({'DEBUG': True})
+)
+
 
 @app.route('/')
-def index() -> Response:
-    return Response('Hello World')
-
+def index() -> TemplateResponse:
+    return TemplateResponse('index.html')
