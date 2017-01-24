@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Kobin Handson</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.min.css" />
-</head>
-<body>
-    <section class="section">
-        <div class="container">
-            <h1 class="title">This is task{{ task_id }}</h1>
-            <p class="subtitle">変数をテンプレートで表示してみましょう。</p>
-        </div>
-    </section>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Task Detail{% endblock %}
+
+{% block content %}
+<h1 class="title">This is task{{ task_id }}</h1>
+<p class="subtitle">変数をテンプレートで表示してみましょう。</p>
+{% endblock %}
