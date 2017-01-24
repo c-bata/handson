@@ -1,11 +1,11 @@
-from kobin import Kobin, Response
+from kobin import Kobin, Response, TemplateResponse
 
 app = Kobin()
 
 
 @app.route('/')
-def index() -> Response:
-    return Response('Hello World')
+def index() -> TemplateResponse:
+    return TemplateResponse('index.html')
 
 
 @app.route('/tasks/{task_id}')
