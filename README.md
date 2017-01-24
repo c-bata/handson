@@ -49,10 +49,10 @@ def index() -> Response:
     return Response('Hello World')
 ```
 
-`app.py` という名前で保存した場合、次のコマンドでサーバを起動します。
+`hello.py` という名前で保存した場合、次のコマンドでサーバを起動します。
 
 ```console
-$ wsgicli run app.py app -p 8000
+$ wsgicli run hello.py app -p 8000
 Start: 127.0.0.1:8000
 ```
 
