@@ -91,8 +91,8 @@ from kobin import Kobin, Response
 
 app = Kobin()
 
-@app.route('^/$', 'GET')
-def hello(request):
+@app.route('/', 'GET')
+def hello():
     return Response('Hello World')
 ```
 
@@ -129,7 +129,7 @@ def index() -> Response:
     return Response('Hello World')
 
 
-@app.route('/tasks/<task_id>')
+@app.route('/tasks/{task_id}')
 def task_detail(task_id: int) -> Response:
     return Response(f'Task {task_id}')
 ```
@@ -364,6 +364,8 @@ See http://docs.python.jp/3/library/sqlite3.html
 `app.py` に組み込む
 
 ```python
+import sqlite3
+
 SQLITE_PATH = 'db.sqlite3'
 _db = None
 
