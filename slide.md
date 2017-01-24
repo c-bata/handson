@@ -4,8 +4,6 @@ class: center, middle, inverse
 ---
 # Kobinハンズオン
 
-※ スライド資料はまだ作成途中です。
-
 Masashi Shibata (@c\_bata\_)
 
 .footnote[Go directly to [Github](https://github.com/kobinpy/handson-ja)]
@@ -352,6 +350,62 @@ PythonからSQLite3を操作する。
 ```
 
 See http://docs.python.jp/3/library/sqlite3.html
+]
+
+---
+.left-column[
+## Tutorial
+### Goal
+### Routing
+### Template Engine
+### Database
+]
+.right-column[
+`app.py` に組み込む
+
+```python
+SQLITE_PATH = 'db.sqlite3'
+_db = None
+
+
+def get_db():
+    global _db
+    if _db is None:
+        _db = sqlite3.connect(SQLITE_PATH)
+    return _db
+
+
+@app.route('/')
+def index() -> TemplateResponse:
+    cur = get_db().cursor()
+    cur.execute('SELECT * FROM tasks')
+    tasks = cur.fetchall()
+    cur.close()
+    return TemplateResponse('index.html', tasks=tasks)
+```
+]
+
+---
+.left-column[
+## Tutorial
+### Goal
+### Routing
+### Template Engine
+### Database
+]
+.right-column[
+
+`index.html` に追加
+
+```html
+<ul>
+    {% for task in tasks %}
+    <li>{{ task[0] }}. {{ task[1] }}</li>
+    {% endfor %}
+</ul>
+```
+
+http://127.0.0.1:8000/ に行ってみよう。
 ]
 
 ---
