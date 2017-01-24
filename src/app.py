@@ -1,4 +1,4 @@
-from kobin import Kobin, Response, TemplateResponse
+from kobin import Kobin, TemplateResponse
 
 app = Kobin()
 
@@ -9,5 +9,5 @@ def index() -> TemplateResponse:
 
 
 @app.route('/tasks/{task_id}')
-def task_detail(task_id: int) -> Response:
-    return Response(f'Task {task_id}')
+def task_detail(task_id: int) -> TemplateResponse:
+    return TemplateResponse('task-detail.html', task_id=task_id)
