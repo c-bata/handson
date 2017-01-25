@@ -91,7 +91,7 @@ from kobin import Kobin, Response
 
 app = Kobin()
 
-@app.route('/', 'GET')
+@app.route('/')
 def hello():
     return Response('Hello World')
 ```
